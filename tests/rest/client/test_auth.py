@@ -533,7 +533,7 @@ class RefreshAuthTests(unittest.HomeserverTestCase):
         login_with_refresh = self.make_request(
             "POST",
             "/_matrix/client/r0/login",
-            {"org.matrix.msc2918.refresh_token": True, **body},
+            {"refresh_token": True, **body},
         )
         self.assertEqual(login_with_refresh.code, 200, login_with_refresh.result)
         self.assertIn("refresh_token", login_with_refresh.json_body)
@@ -564,7 +564,7 @@ class RefreshAuthTests(unittest.HomeserverTestCase):
                 "username": "test3",
                 "password": self.user_pass,
                 "auth": {"type": LoginType.DUMMY},
-                "org.matrix.msc2918.refresh_token": True,
+                "refresh_token": True,
             },
         )
         self.assertEqual(register_with_refresh.code, 200, register_with_refresh.result)
@@ -579,7 +579,7 @@ class RefreshAuthTests(unittest.HomeserverTestCase):
             "type": "m.login.password",
             "user": "test",
             "password": self.user_pass,
-            "org.matrix.msc2918.refresh_token": True,
+            "refresh_token": True,
         }
         login_response = self.make_request(
             "POST",
@@ -617,7 +617,7 @@ class RefreshAuthTests(unittest.HomeserverTestCase):
             "type": "m.login.password",
             "user": "test",
             "password": self.user_pass,
-            "org.matrix.msc2918.refresh_token": True,
+            "refresh_token": True,
         }
         login_response = self.make_request(
             "POST",
@@ -659,7 +659,7 @@ class RefreshAuthTests(unittest.HomeserverTestCase):
             "type": "m.login.password",
             "user": "test",
             "password": self.user_pass,
-            "org.matrix.msc2918.refresh_token": True,
+            "refresh_token": True,
         }
         login_response = self.make_request(
             "POST",
